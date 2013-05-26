@@ -2112,13 +2112,13 @@ public class PApplet extends Activity implements PConstants, Runnable {
   public void postEvent(processing.event.Event pe) {
     eventQueue.add(pe);
 
-    if (!looping) {
+    if (!looping && !redraw) {
       dequeueEvents();
     }
   }
 
 
-  protected void dequeueEvents() {
+  synchronized protected void dequeueEvents() {
     while (eventQueue.available()) {
       Event e = eventQueue.remove();
 
