@@ -2744,11 +2744,15 @@ public class PApplet extends Activity implements PConstants, Runnable {
     // if someone else wants to intercept the key, they should
     // set key to zero (or something besides the "ESC").
     if (event.getAction() == KeyEvent.PRESS &&
-        event.getKeyCode() == android.view.KeyEvent.KEYCODE_BACK) {
+        keyCode == android.view.KeyEvent.KEYCODE_BACK) { // check our keyCode var, not the original!
       exit();
     }
   }
 
+  public void onBackPressed() {
+	  // do nothing, because we're going to handle the BACK press up there in handleKeyEvent()
+	  // that way users can customize the behavior by changing the keyCode value in onKeyPressed()
+  }
 
   protected void nativeKeyEvent(android.view.KeyEvent event) {
     // event.isPrintingKey() returns false for whitespace and others,
@@ -2774,14 +2778,6 @@ public class PApplet extends Activity implements PConstants, Runnable {
 
     KeyEvent ke = new KeyEvent(event, event.getEventTime(),
                                keAction, keModifiers, key, keyCode);
-
-    // if someone else wants to intercept the key, they should
-    // set key to zero (or something besides the "ESC").
-    if (action == android.view.KeyEvent.ACTION_DOWN) {
-      if (keyCode == android.view.KeyEvent.KEYCODE_BACK) {
-        exit();
-      }
-    }
 
     postEvent(ke);
   }
