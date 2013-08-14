@@ -168,6 +168,17 @@ public class PVector implements Serializable {
     this.y = y;
     this.z = z;
   }
+  
+  /**
+   * Set method for a 2D vector.
+   * @param x the x component of the vector
+   * @param y the y component of the vector
+   */
+  public void set(float x, float y) {
+    this.x = x;
+    this.y = y;
+    this.z = 0;
+  }
 
   /**
    *
