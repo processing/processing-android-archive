@@ -34,8 +34,8 @@ import processing.mode.java.JavaBuild;
 class AndroidBuild extends JavaBuild {
 //  static final String basePackage = "changethispackage.beforesubmitting.tothemarket";
   static final String basePackage = "processing.test";
-  static final String sdkName = "2.3.3";
-  static final String sdkVersion = "10";  // Android 2.3.3 (Gingerbread)
+  static final String sdkName = "3.2";
+  static final String sdkVersion = "13";  // Android 2.3.3 (Gingerbread)
   static final String sdkTarget = "android-" + sdkVersion;
 
   private final AndroidSDK sdk;
